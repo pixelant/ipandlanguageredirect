@@ -1,6 +1,14 @@
 # TYPO3 Extension ipandlanguageredirect
 TYPO3 FE visitor automatic or manual redirect to another language or another root page.
 
+## PIXELANT CHANGES
+
+!! For multisite installation use:
+config.typolinkEnableLinksAcrossDomains = 1
+config.typolinkCheckRootline = 1
+config.content_from_pid_allowOutsideDomain = 1
+
+
 ## Introduction
 
 This extension allows **multi-language** and **multi-domain** handling with redirects to best fitting pages with best

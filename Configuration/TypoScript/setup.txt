@@ -12,8 +12,8 @@ page {
 	includeCSS.ipandlanguageredirect = EXT:ipandlanguageredirect/Resources/Public/Css/Frontend.min.css
 
 	# Suggest container that can be slided down
-	5 = USER
-	5 {
+	6 = USER
+	6 {
 		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
 		extensionName = Ipandlanguageredirect
 		pluginName = Pi1

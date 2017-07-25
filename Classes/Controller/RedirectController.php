@@ -72,6 +72,8 @@ class RedirectController extends ActionController
         $rootpageUid = 1,
         $countryCode = ''
     ) {
+
+        $ipAddress = (intval($ipAddress))? $ipAddress : GeneralUtility::getIndpEnv('REMOTE_ADDR');
         $redirectService = $this->objectManager->get(
             RedirectService::class,
             $browserLanguage,
@@ -109,5 +111,6 @@ class RedirectController extends ActionController
      */
     public function suggestAction()
     {
+
     }
 }

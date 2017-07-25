@@ -38,7 +38,7 @@ class IpUtility
         }
         $geoInfo = null;
         if (empty(self::$ipAddresses[$ipAddress])) {
-            $json = GeneralUtility::getUrl('https://ipapi.co/' . $ipAddress . '/json/');
+            $json = GeneralUtility::getUrl('https://ipapi.co/' . $ipAddress . '/json/?key=c4b211913b9b98046804b43bb6495fdb8d1e7ea6');
             if ($json) {
                 $geoInfo = json_decode($json);
                 self::$ipAddresses[$ipAddress] = $geoInfo;

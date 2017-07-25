@@ -196,6 +196,11 @@ class RedirectService
             $configurationSet->calculateQuantifiers($this->browserLanguage, $this->countryCode);
             $bestConfiguration = $configurationSet->getBestFittingConfiguration();
             $this->bestConfiguration = $bestConfiguration;
+
+            if ( $this->configuration['noMatchingConfiguration']['matchMinQuantifier'] >= $bestConfiguration->getQuantifier() ) {
+                $this->setDeactivated();
+            } 
+
             if ($bestConfiguration === null) {
                 $this->setDeactivated();
             }
@@ -216,7 +221,8 @@ class RedirectService
         $uriBuilder->setTargetPageUid($pageIdentifier);
         $uriBuilder->setCreateAbsoluteUri(true);
         $uriBuilder->setArguments([$this->languageParameter => $languageParameter]);
-        return $uriBuilder->buildFrontendUri();
+
+        return $uriBuilder->buildFrontendUri() . substr($_SERVER['REDIRECT_URL'], 1);
     }
 
     /**
