@@ -222,6 +222,17 @@ class RedirectService
         $uriBuilder->setCreateAbsoluteUri(true);
         $uriBuilder->setArguments([$this->languageParameter => $languageParameter]);
 
+
+        // in case if /products/
+        if ( strpos($_SERVER['REDIRECT_URL'], 'product') ) {
+            $redirectNew = $uriBuilder->buildFrontendUri() . substr($_SERVER['REDIRECT_URL'], 1) . explode($_SERVER['REDIRECT_URL'], $_SERVER['HTTP_REFERER'])[1];
+
+            $redirectNew = explode('?', $redirectNew)[0];
+
+            return $redirectNew;
+        }
+        
+
         return $uriBuilder->buildFrontendUri() . substr($_SERVER['REDIRECT_URL'], 1);
     }
 
